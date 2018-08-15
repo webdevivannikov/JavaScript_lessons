@@ -81,23 +81,13 @@ console.log(budget(mainList.budget));
 mainList.discount = true;
 
 function disc(discount, fixprice){
-	switch (discount) {
-		case true:
-			fixprice();
-			break;
-		case false:
-			// statements_1
-			break
-		default:
-			// statements_def
-			break;
+	if (discount) {
+		fixprice();
 	}
 };
 
 disc(mainList.discount, function(){
-	if (mainList.discount){
-		mainList.price = mainList.price * 0.8
-	}
+	mainList.price = mainList.price * 0.8
 });
 
 function addEmployers() {
