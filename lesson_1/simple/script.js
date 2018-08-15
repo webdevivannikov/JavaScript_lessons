@@ -21,7 +21,6 @@ for (let i = 0; i < 3; i++){
 /*let i = 0;
 while (i < 3) {
 	let a = prompt("Какой тип товаров будем продавать?");
-
 	if ((typeof(a)) === 'string' || (typeof(a)) === null || a != '' || a.length < 50) {
 		mainList.shopGoods[i] = a;
 		i++;
@@ -33,7 +32,6 @@ while (i < 3) {
 /*let i = 0;
 do {
 	let a = prompt("Какой тип товаров будем продавать?");
-
 	if ((typeof(a)) === 'string' || (typeof(a)) === null || a != '' || a.length < 50) {
 		mainList.shopGoods[i] = a;
 		i++;
