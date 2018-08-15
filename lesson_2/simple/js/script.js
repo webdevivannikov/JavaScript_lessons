@@ -11,10 +11,11 @@ var myAccount = +prompt("Ваш бюджет на месяц:", "30");
 for (let i = 0; i < 3; i++){
 	let a = prompt("Какой тип товаров будем продавать?");
 
-	if ((typeof(a)) === 'string' || (typeof(a)) === null || a != '' || a.length < 50) {
+	if ((typeof(a)) === 'string' && (typeof(a)) != null && a != '' && a.length < 50) {
 		mainList.shopGoods[i] = a;
 	} else {
 		alert("Введенное значение пустое или больше 50 символов!")
+		i--;
 	}
 }
 

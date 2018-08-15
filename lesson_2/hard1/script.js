@@ -1,23 +1,20 @@
 var week = ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресение"];
-	D = new Date(),
-    hour = D.getHours(),
-    day = D.getUTCDay();
+    day = new Date().getDay();
     arr = [456456465, 1324165, 35465123, 7894984, 7842543, 3546546, 818181];
-
+    console.log(day);
 for (let i = 0; i < 7; i++){
-	switch (i) {
-		case 5:
-			document.writeln("<b>" + week[i] + "</b>"  + "<br>");
-			break;
-		case 6:
-			document.writeln("<b>" + week[i] + "</b>"  + "<br>");
-			break;
-		case day-1:
-			document.writeln("<i>" + week[i] + "</i>"  + "<br>");
-			break;
-		default:
-			document.writeln(week[i] + "<br>");
-			break;
+	if (i >= 5) {
+		document.writeln("<b>" + week[i] + "</b>"  + "<br>");
+	} else if (i == day-1)
+	{
+		document.writeln("<i>" + week[i] + "</i>"  + "<br>");
+	}
+	else if ((i == day-1) && (i >= 5))
+	{
+		document.writeln("<b><i>" + week[i] + "</i></b>"  + "<br>");
+	}
+	else {
+		document.writeln(week[i] + "<br>");
 	}	
 }
 
