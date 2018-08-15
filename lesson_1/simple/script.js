@@ -7,8 +7,43 @@ var myAccount = +prompt("Ваш бюджет на месяц:", "30");
 		employers: {},
 		open: false
 	}
+
 for (let i = 0; i < 3; i++){
-	mainList.shopGoods[i] = prompt("Какой тип товаров будем продавать?");
+	let a = prompt("Какой тип товаров будем продавать?");
+
+	if ((typeof(a)) === 'string' || (typeof(a)) === null || a != '' || a.length < 50) {
+		mainList.shopGoods[i] = a;
+	} else {
+		alert("Введенное значение пустое или больше 50 символов!")
+	}
 }
+
+/*let i = 0;
+while (i < 3) {
+	let a = prompt("Какой тип товаров будем продавать?");
+
+	if ((typeof(a)) === 'string' || (typeof(a)) === null || a != '' || a.length < 50) {
+		mainList.shopGoods[i] = a;
+		i++;
+	} else {
+		alert("Введенное значение пустое или больше 50 символов!")
+	}
+}
+*/
+/*let i = 0;
+do {
+	let a = prompt("Какой тип товаров будем продавать?");
+
+	if ((typeof(a)) === 'string' || (typeof(a)) === null || a != '' || a.length < 50) {
+		mainList.shopGoods[i] = a;
+		i++;
+	} else {
+		alert("Введенное значение пустое или больше 50 символов!")
+	}
+	
+}
+while (i < 3)*/
+
+console.log(mainList);
 
 console.log("бюджет на 1 день - " + mainList.account/30 + " тыс. руб.");
