@@ -11,6 +11,7 @@ let open = document.getElementById("open-btn"),
 	good_btn = document.getElementsByTagName("button")[1],
 	budget_btn = document.getElementsByTagName("button")[2],
 	employers_btn = document.getElementsByTagName("button")[3],
+	buy_btn = document.getElementsByTagName("button")[4],
 	choose_item = document.querySelector(".choose-item"),
 	time_value = document.querySelector(".time-value"),
 	count_budget_value = document.querySelector(".count-budget-value"),
@@ -37,18 +38,6 @@ open.addEventListener('click', () => {
 	}
 	budget_value.textContent = money;
 	budget_btn.disabled = 0;
-	if (budget_value.textContent >= 3000){
-		mainList.discount = true;	
-	}
-	else {
-		mainList.discount = false;
-	}
-	if (mainList.discount){
-		discount_value.style.backgroundColor = 'green'; 
-	}
-	else {
-		discount_value.style.backgroundColor = 'red'; 
-	}
 /*	myPrice = +prompt("Цена товара:", "");
 	while (myPrice == '' || isNaN(myPrice)) {
 		myPrice = +prompt("Цена товара:", "");
@@ -91,16 +80,32 @@ time_value.addEventListener('change', () => {
 	let time = time_value.value;
 	if (time < 0) {
 		mainList.open = false;
+		mainList.discount = false;
 	} else if (time > 8 && time < 20) {
+			if (time >= 9 && time <= 12)
+			{
+				alert("Во время с 9 до 12 часов в магазине действуют скидки 10%!");
+				mainList.discount = true;	
+			}
+			else {
+				mainList.discount = false;
+			}
 			mainList.open = true;
 		} else {
 			mainList.open = false;
+			mainList.discount = false;
 			}
 	if (mainList.open){
 		isopen_value.style.backgroundColor = 'green';
 	}
 	else{
 		isopen_value.style.backgroundColor = 'red';
+	}
+	if (mainList.discount){
+		discount_value.style.backgroundColor = 'green'; 
+	}
+	else{
+		discount_value.style.backgroundColor = 'red'; 
 	}
 });
 
@@ -119,6 +124,24 @@ employers_btn.addEventListener('click', () => {
 	}
 });
 
+buy_btn.addEventListener('click', () => {
+	let time = time_value.value;
+	let summa = +prompt("Сумма покупки", "");
+	let skidka = 0;
+	if ((time >= 9) && (time <= 12)){
+		skidka = 0.1;
+		alert ("Ваша скидка составляет 10%");
+	}
+	if (summa >= 3000) {
+		skidka = 0.15;
+		alert ("Сумма покупки больше 3000. Ваша скидка составляет 15%");
+	}
+	console.log(skidka);
+	console.log(summa);
+	summa = summa - summa*skidka;
+	console.log(summa);
+	alert ("Итоговая цена покупки: " + summa);
+});
 
 let	mainList = {
 		budget: money,
@@ -129,5 +152,4 @@ let	mainList = {
 		discount: false,
 		shopItemes: []
 	}
-
 

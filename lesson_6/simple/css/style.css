@@ -174,3 +174,8 @@ body {
   margin: 0 auto;
   margin-top: 10px;
 }
+.main-functions .buy-btn {
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px;
+}
