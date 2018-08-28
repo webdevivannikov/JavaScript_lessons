@@ -5,7 +5,6 @@ window.addEventListener('DOMContentLoaded', function (){
 		hours = document.getElementsByClassName('hours')[0],
 		minutes = document.getElementsByClassName('minutes')[0],
 		seconds = document.getElementsByClassName('seconds')[0];
-	console.log(Data.getHours())
 	function addZero(number){
 		let a;
 		if (number < 10){
