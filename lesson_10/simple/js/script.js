@@ -122,7 +122,7 @@ window.addEventListener('DOMContentLoaded', function (){
 
 	close.addEventListener('click', () => {
 		overlay.style.display = 'none';
-		document.body.style.overflow = '';
+		this.document.body.style.overflow = '';
 	});
 
 });
