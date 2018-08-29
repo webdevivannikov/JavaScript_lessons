@@ -22,7 +22,7 @@ window.addEventListener('DOMContentLoaded', function (){
 		}
 	};
 
-	info.addEventListener('click', function(event) {
+	info.addEventListener('click', (event) => {
 		let target = event.target;
 		if (target.className == 'info-header-tab') {
 			for (let i = 0; i < tab.length; i++){
@@ -102,13 +102,13 @@ window.addEventListener('DOMContentLoaded', function (){
 		close = document.querySelector('.popup-close'),
 		infoTab = document.querySelectorAll('.info-tabcontent');
 
-	more.addEventListener('click', function() {
+	more.addEventListener('click', () => {
 		overlay.style.display = 'block';
 		document.body.style.overflow = 'hidden';
 	});
 
 	for (let i = 0; i < infoTab.length; i++) {
-		infoTab[i].addEventListener('click', function(event) {
+		infoTab[i].addEventListener('click', (event) => {
 			let target = event.target;
 			if (target.className == 'description-btn') {
 				overlay.style.display = 'block';
@@ -119,7 +119,7 @@ window.addEventListener('DOMContentLoaded', function (){
 
 	
 
-	close.addEventListener('click', function() {
+	close.addEventListener('click', () => {
 		overlay.style.display = 'none';
 		document.body.style.overflow = '';
 	});
