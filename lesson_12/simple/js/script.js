@@ -239,13 +239,13 @@ window.addEventListener('DOMContentLoaded', function (){
 
 	persons.onkeydown = function(event) {
 		let chr = event.which;
-		if (chr == 16 || chr == 191 || chr == 187 || chr == 231 || chr == 190 || chr == 188 || chr == 110 ) {
+		if (chr == 191 || chr == 187 || chr == 231 || chr == 190 || chr == 188 || chr == 110 ) {
 			return false;
 		};
 	}
 	restDays.onkeydown = function(event) {
 		let chr = event.which;
-		if (chr == 16 || chr == 191 || chr == 187 || chr == 231 || chr == 190 || chr == 188 || chr == 110) {
+		if (chr == 191 || chr == 187 || chr == 231 || chr == 190 || chr == 188 || chr == 110) {
 			return false;
 		};
 	}
