@@ -272,9 +272,10 @@ window.addEventListener('DOMContentLoaded', function (){
 		} else {
 			daysSum = +this.value;
 			total = (daysSum + personsSum) * 4000 * koef;
-			if (personsSum.value == '' || personsSum.value == '0') {
+			if (personsSum.value == '' || persons.value == '0') {
 				totalValue.innerHTML = 0;
 			} else {
+				console.log(+personsSum.value)
 				totalValue.innerHTML = total;
 			}
 		}	
