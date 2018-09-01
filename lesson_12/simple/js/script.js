@@ -239,25 +239,25 @@ window.addEventListener('DOMContentLoaded', function (){
 
 	persons.onkeydown = function(event) {
 		let chr = event.which;
-		if (chr == 16 || chr == 191 || chr == 187 || chr == 231) {
+		if (chr == 16 || chr == 191 || chr == 187 || chr == 231 || chr == 190 || chr == 188 || chr == 110 ) {
 			return false;
 		};
 	}
 	restDays.onkeydown = function(event) {
 		let chr = event.which;
-		if (chr == 16 || chr == 191 || chr == 187 || chr == 231) {
+		if (chr == 16 || chr == 191 || chr == 187 || chr == 231 || chr == 190 || chr == 188 || chr == 110) {
 			return false;
 		};
 	}
 
 	persons.addEventListener('change', function() {
-		if (this.value == '') {
+		if (this.value == '' || this.value == '0') {
 			totalValue.innerHTML = 0;
 		} 
 		else {
 			personsSum = +this.value;
 			total = (daysSum + personsSum) * 4000 * koef;
-			if (restDays.value == '') {
+			if (restDays.value == '' || restDays.value == '0') {
 				totalValue.innerHTML = 0;
 			} else {
 				totalValue.innerHTML = total;
@@ -267,12 +267,12 @@ window.addEventListener('DOMContentLoaded', function (){
 	});
 
 	restDays.addEventListener('change', function() {
-		if (this.value == '') {
+		if (this.value == '' || this.value == '0') {
 			totalValue.innerHTML = 0;
 		} else {
 			daysSum = +this.value;
 			total = (daysSum + personsSum) * 4000 * koef;
-			if (personsSum.value == '') {
+			if (personsSum.value == '' || personsSum.value == '0') {
 				totalValue.innerHTML = 0;
 			} else {
 				totalValue.innerHTML = total;
