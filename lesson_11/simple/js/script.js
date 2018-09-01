@@ -146,7 +146,7 @@ window.addEventListener('DOMContentLoaded', function (){
 			request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
 			let formData = new FormData(form[i]);
-
+ 
 			request.send(formData);
 
 			request.onreadystatechange = () => {
