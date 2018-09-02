@@ -292,9 +292,6 @@ window.addEventListener('DOMContentLoaded', function (){
 		if (restDays.value == '' || personsSum.value == '' || restDays.value == '0' || personsSum.value == '0') {
 			totalValue.innerHTML = 0;
 		} else {
-			console.log(daysSum)
-			console.log(personsSum)
-			console.log(koef)
 			total = (daysSum + personsSum) * 4000 * koef;
 			let a = total;
 			totalValue.innerHTML = a;
