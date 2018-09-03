@@ -139,7 +139,7 @@ function calc() {
     koef = 1;
     koef = this.options[this.selectedIndex].value;
 
-    if (restDays.value == '' || personsSum.value == '' || restDays.value == '0' || persons.value == '0') {
+    if (restDays.value == '' || persons.value == '' || restDays.value == '0' || persons.value == '0') {
       totalValue.innerHTML = 0;
     } else {
       total = (daysSum + personsSum) * 4000 * koef;
