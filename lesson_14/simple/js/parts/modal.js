@@ -1,8 +1,6 @@
 "use strict";
 
 function modal() {
-  var _this = this;
-
   //Modal
   var more = document.querySelector('.more'),
       overlay = document.querySelector('.overlay'),
@@ -28,7 +26,7 @@ function modal() {
 
   close.addEventListener('click', function () {
     overlay.style.display = 'none';
-    _this.document.body.style.overflow = '';
+    document.body.style.overflow = '';
   });
 }
 

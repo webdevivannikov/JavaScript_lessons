@@ -25,7 +25,7 @@ function modal() {
 
 	close.addEventListener('click', () => {
 		overlay.style.display = 'none';
-		this.document.body.style.overflow = '';
+		document.body.style.overflow = '';
 	});
 
 }
