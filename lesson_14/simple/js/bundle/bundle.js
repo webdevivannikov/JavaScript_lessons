@@ -163,7 +163,7 @@ function modal() {
       infoTab = document.querySelectorAll('.info-tabcontent');
   more.addEventListener('click', function () {
     overlay.style.display = 'block';
-    _this.document.body.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
   });
 
   for (var i = 0; i < infoTab.length; i++) {
@@ -172,7 +172,7 @@ function modal() {
 
       if (target.className == 'description-btn') {
         overlay.style.display = 'block';
-        _this.document.body.style.overflow = 'hidden';
+        document.body.style.overflow = 'hidden';
       }
 
       ;
