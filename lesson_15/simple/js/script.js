@@ -1,4 +1,5 @@
 // Функция sum должна возвращать тип данных true. Проверить её на это.
+let assert = require('chai').assert
 
 function sum(a, b) {
 	return a + b > 10;
