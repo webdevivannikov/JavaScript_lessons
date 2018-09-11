@@ -200,7 +200,7 @@ window.addEventListener('DOMContentLoaded', function() {
 	setTimeout(function() {
 		popup.style.display = 'block';
 		document.body.style.overflow = 'hidden';
-	}, 5000);
+	}, 60000);
 
 	// let modal = require('../parts/modal.js');
 
