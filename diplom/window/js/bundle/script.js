@@ -195,6 +195,13 @@ window.addEventListener('DOMContentLoaded', function() {
 		});
 
 	};
+
+	//modal 60
+	setTimeout(function() {
+		popup.style.display = 'block';
+		document.body.style.overflow = 'hidden';
+	}, 5000);
+
 	// let modal = require('../parts/modal.js');
 
 	// modal();
