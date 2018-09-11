@@ -1,28 +1,4 @@
-function setCursorPosition(pos, elem) {
-    elem.focus();
-    if (elem.setSelectionRange) elem.setSelectionRange(pos, pos);
-    else if (elem.createTextRange) {
-        var range = elem.createTextRange();
-        range.collapse(true);
-        range.moveEnd("character", pos);
-        range.moveStart("character", pos);
-        range.select()
-    }
-}
 
-function mask(event) {
-    var matrix = "+7 (___) ___ ____",
-        i = 0,
-        def = matrix.replace(/\D/g, ""),
-        val = this.value.replace(/\D/g, "");
-    if (def.length >= val.length) val = def;
-    this.value = matrix.replace(/./g, function(a) {
-        return /[_\d]/.test(a) && i < val.length ? val.charAt(i++) : i >= val.length ? "" : a
-    });
-    if (event.type == "blur") {
-        if (this.value.length == 2) this.value = ""
-    } else setCursorPosition(this.value.length, this)
-};
 
 window.addEventListener('DOMContentLoaded', function() {
 	//modal
@@ -42,6 +18,28 @@ window.addEventListener('DOMContentLoaded', function() {
 			
 	});
 
+	popup.addEventListener('click', (event) => {
+		let target = event.target;
+
+		//console.log(target)
+		if (!target == popup_form[0] || !popup_form[0].contains(target)) {
+			popup.style.display = 'none';
+			document.body.style.overflow = '';
+		}
+
+	});
+	popup_engineer.addEventListener('click', (event) => {
+		let target = event.target;
+
+		//console.log(target)
+		if (!target == popup_form[1] || !popup_form[1].contains(target)) {
+		
+			popup_engineer.style.display = 'none';
+			document.body.style.overflow = '';
+		}
+
+	});
+	
 	for (let i = 0; i < popup_close.length; i++) {
 		popup_close[i].addEventListener('click', (event) => {
 			event.preventDefault();
@@ -60,44 +58,7 @@ window.addEventListener('DOMContentLoaded', function() {
 				document.body.style.overflow = 'hidden';
 			};
 		});
-		popup.addEventListener('click', (event) => {
-			event.preventDefault();
-			let target = event.target;
-
-			//console.log(target)
-			if (target == popup_form[0]) {
-				console.log(target);
-				
-			} else if (popup_form[0].contains(target))
-			{
-				console.log(popup_form[0].contains(target));
-				
-			}
-			else {
-				popup.style.display = 'none';
-				document.body.style.overflow = '';
-			}
-
-		});
-		popup_engineer.addEventListener('click', (event) => {
-			event.preventDefault();
-			let target = event.target;
-
-			//console.log(target)
-			if (target == popup_form[1]) {
-				console.log(target);
-				
-			} else if (popup_form[1].contains(target))
-			{
-				console.log(popup_form[1].contains(target));
-				
-			}
-			else {
-				popup_engineer.style.display = 'none';
-				document.body.style.overflow = '';
-			}
-
-		});
+		
 	}
 	//Form
 	let message = new Object();
@@ -108,7 +69,31 @@ window.addEventListener('DOMContentLoaded', function() {
 	let form = document.getElementsByTagName('form'),
 		statusMessage = document.createElement('div');
 
-	
+	function setCursorPosition(pos, elem) {
+	    elem.focus();
+	    if (elem.setSelectionRange) elem.setSelectionRange(pos, pos);
+	    else if (elem.createTextRange) {
+	        var range = elem.createTextRange();
+	        range.collapse(true);
+	        range.moveEnd("character", pos);
+	        range.moveStart("character", pos);
+	        range.select()
+	    }
+	}
+
+	function mask(event) {
+	    var matrix = "+7 (___) ___ ____",
+	        i = 0,
+	        def = matrix.replace(/\D/g, ""),
+	        val = this.value.replace(/\D/g, "");
+	    if (def.length >= val.length) val = def;
+	    this.value = matrix.replace(/./g, function(a) {
+	        return /[_\d]/.test(a) && i < val.length ? val.charAt(i++) : i >= val.length ? "" : a
+	    });
+	    if (event.type == "blur") {
+	        if (this.value.length == 2) this.value = ""
+	    } else setCursorPosition(this.value.length, this)
+	};
 	    
 	for (let i = 0; i < form.length; i++) {
 		let input = form[i].getElementsByTagName('input'),
@@ -130,12 +115,13 @@ window.addEventListener('DOMContentLoaded', function() {
 			let formData = new FormData(form[i]);
 	
 			request.send(formData);
-
-			request.onreadystatechange = () => {
+			
+			request.onreadystatechange = function() {
 				if (request.readyState < 4) {
 					statusMessage.innerHTML = message.loading;
 				} else if (request.readyState === 4) {
 					if (request.status == 200 && request.status < 300) {
+						console.log(form[i])
 						statusMessage.innerHTML = message.success;
 					}
 					else {
