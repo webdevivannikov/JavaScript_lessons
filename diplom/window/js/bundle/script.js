@@ -39,7 +39,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		}
 
 	});
-	
+
 	for (let i = 0; i < popup_close.length; i++) {
 		popup_close[i].addEventListener('click', (event) => {
 			event.preventDefault();
@@ -136,9 +136,65 @@ window.addEventListener('DOMContentLoaded', function() {
 		});
 	};
 
+	//tab
+	let glazing_slider = document.querySelector('.glazing_slider'),
+		glazing_block = document.querySelectorAll('.glazing_block'),
+		tree = document.querySelector('.tree'),
+		aluminum = document.querySelector('.aluminum'),
+		plastic = document.querySelector('.plastic'),
+		french = document.querySelector('.french'),
+		rise = document.querySelector('.rise');
 
+	function hideTabContent() {
 
+		for (let i = 0; i < glazing_block.length; i++){
+			if (glazing_block[i].childNodes[3].classList.contains('active')) {
+				glazing_block[i].childNodes[3].classList.remove('active');
+			}
 
+		};
+		tree.style.display = "none";
+		aluminum.style.display = "none";
+		plastic.style.display = "none";
+		french.style.display = "none";
+		rise.style.display = "none";
+		
+	};
+
+	function showTabContent(b){
+		hideTabContent();
+		let str = glazing_block[b].childNodes[3].classList[0]
+		switch (str.substr(0, str.length - 5)) {
+			case "tree":
+				tree.style.display = "block";
+				break;
+			case "aluminum":
+				aluminum.style.display = "block";
+				break;
+			case "plastic":
+				plastic.style.display = "block";
+				break;
+			case "french":
+				french.style.display = "block";
+				break;
+			case "rise":
+				rise.style.display = "block";
+				break;
+		}
+		glazing_block[b].childNodes[3].classList.add('active');
+	};
+
+	for (let i = 0; i < glazing_block.length; i++){
+		glazing_block[i].addEventListener('click', (event) => {
+			let target = event.target;
+
+			if (target.classList.contains(glazing_block[i].childNodes[3].classList)){
+				console.log()
+				showTabContent(i);
+			}
+		});
+
+	};
 	// let modal = require('../parts/modal.js');
 
 	// modal();
