@@ -855,10 +855,10 @@
                   <img src="img/modal_calc/balkon/type3.png" alt="" id="type3">
                   <img src="img/modal_calc/balkon/type4.png" alt="" id="type4">
                 </div>
-                <input class="form-control" id="width" type="text" placeholder="Ширина" required>
+                <input class="form-control" id="width" type="number" min="0" placeholder="Ширина" required>
                 <label for="width">мм</label>
                 <div class="multiplication"><strong>&times;</strong></div>
-                <input class="form-control" id="height" type="text" placeholder="Высота" required>
+                <input class="form-control" id="height" type="number" min="0" placeholder="Высота" required>
                 <label for="height">мм</label>
                 <button class="button popup_calc_button">Далее</button>
             </div>
@@ -880,13 +880,13 @@
                  </select>
                  <img src="img/modal_calc/icon_cold.png" alt="">
                  <label>
-                     <input class="checkbox" type="checkbox" name="checkbox-test">
+                     <input class="checkbox" type="radio" value="cold" name="checkbox-test" checked>
                      <span class="checkbox-custom" id="cold"></span>
                      <span class="label">Холодное</span>
                  </label>
                  <img src="img/modal_calc/icon_warm.png" alt="">
                  <label>
-                     <input class="checkbox" type="checkbox" name="checkbox-test">
+                     <input class="checkbox" type="radio" value="warm" name="checkbox-test" >
                      <span class="checkbox-custom" id="warm"></span>
                      <span class="label">Теплое</span>
                  </label>
