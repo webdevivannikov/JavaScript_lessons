@@ -703,7 +703,8 @@ textarea:focus {
 /*Modals*/
 .popup,
 .popup_engineer,
-.popup_calc_end {
+.popup_calc_end,
+.popup_image {
   display: none;
   position: fixed;
   top: 0;
@@ -715,7 +716,8 @@ textarea:focus {
 }
 .popup_content,
 .popup_engineer_content,
-.popup_calc_end_content {
+.popup_calc_end_content,
+.popup_image_content {
   position: fixed;
   top: 10%;
   left: 50%;
