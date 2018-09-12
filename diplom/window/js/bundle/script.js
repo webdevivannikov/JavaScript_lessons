@@ -137,64 +137,54 @@ window.addEventListener('DOMContentLoaded', function() {
 	};
 
 	//tab
-	let glazing_slider = document.querySelector('.glazing_slider'),
-		glazing_block = document.querySelectorAll('.glazing_block'),
-		tree = document.querySelector('.tree'),
-		aluminum = document.querySelector('.aluminum'),
-		plastic = document.querySelector('.plastic'),
-		french = document.querySelector('.french'),
-		rise = document.querySelector('.rise');
+	let glazing_block = document.querySelectorAll('.glazing_block'),
+		stuff = document.querySelectorAll('.stuff');
 
-	function hideTabContent() {
+	function hideTabContent(obj, className, elem, index) {
 
-		for (let i = 0; i < glazing_block.length; i++){
-			if (glazing_block[i].childNodes[3].classList.contains('active')) {
-				glazing_block[i].childNodes[3].classList.remove('active');
+		for (let i = 0; i < obj.length; i++){
+			if (obj[i].childNodes[index].classList.contains(className)) {
+				obj[i].childNodes[index].classList.remove(className);
+				elem[i].style.display = "none";
 			}
 
 		};
-		tree.style.display = "none";
-		aluminum.style.display = "none";
-		plastic.style.display = "none";
-		french.style.display = "none";
-		rise.style.display = "none";
 		
 	};
 
-	function showTabContent(b){
-		hideTabContent();
-		let str = glazing_block[b].childNodes[3].classList[0]
-		switch (str.substr(0, str.length - 5)) {
-			case "tree":
-				tree.style.display = "block";
-				break;
-			case "aluminum":
-				aluminum.style.display = "block";
-				break;
-			case "plastic":
-				plastic.style.display = "block";
-				break;
-			case "french":
-				french.style.display = "block";
-				break;
-			case "rise":
-				rise.style.display = "block";
-				break;
-		}
-		glazing_block[b].childNodes[3].classList.add('active');
+
+	function showTabContent(a, i, className, arrayStyle, obj){
+		hideTabContent(obj, className, arrayStyle, i);
+
+		arrayStyle[a].style.display = "block";
+		obj[a].childNodes[i].classList.add(className);
 	};
 
 	for (let i = 0; i < glazing_block.length; i++){
 		glazing_block[i].addEventListener('click', (event) => {
 			let target = event.target;
-
-			if (target.classList.contains(glazing_block[i].childNodes[3].classList)){
-				console.log()
-				showTabContent(i);
+			if (target.parentNode.childNodes[3].classList.contains(glazing_block[i].childNodes[3].classList)){
+				showTabContent(i, 3, 'active', stuff, glazing_block);
 			}
 		});
 
 	};
+
+
+	let decoration_item = document.querySelectorAll('.decoration_item'),
+		decor = document.querySelectorAll('.decor');
+
+	for (let i = 0; i < decoration_item.length; i++){
+		decoration_item[i].addEventListener('click', (event) => {
+			let target = event.target;
+			if ((target.classList.contains("no_click") || target.parentNode.classList.contains("no_click")) == (decoration_item[i].childNodes[1].classList.contains("no_click"))){
+				showTabContent(i, 1, 'after_click', decor, decoration_item);
+			}
+		});
+
+	};
+
+
 
 	//modal 60
 	setTimeout(function() {
