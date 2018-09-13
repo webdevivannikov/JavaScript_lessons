@@ -38,8 +38,6 @@ function ajax() {
     } else setCursorPosition(this.value.length, this);
   }
 
-  ;
-
   var _loop = function _loop(i) {
     var input = form[i].getElementsByTagName('input'),
         input_tel = document.getElementsByName("user_phone");

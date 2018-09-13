@@ -16,6 +16,7 @@ function calc() {
 		popup_calc_end_close = document.querySelector('.popup_calc_end_close'),
 		balcon_icons = document.querySelector('.balcon_icons'),
 		big_img = document.querySelector('.big_img'),
+		form_control = document.querySelectorAll('.form-control'),
 		mainList = {};
 
 	//появляется калькулятор
@@ -27,6 +28,36 @@ function calc() {
 
 		});
 
+	}
+
+	function getChar(event) {
+	   if (event.which == null) {
+	     if (event.keyCode < 32) return null;
+	     return String.fromCharCode(event.keyCode) // IE
+	   }
+
+	   if (event.which != 0 && event.charCode != 0) {
+	     if (event.which < 32) return null;
+	     return String.fromCharCode(event.which) // остальные
+	   }
+
+	   return null; // специальная клавиша
+	}
+	
+	for (let i = 0; i < form_control.length; i++){
+		form_control[i].onkeypress = function(e) {
+		  e = e || event;
+
+		  if (e.ctrlKey || e.altKey || e.metaKey) return;
+
+		  let chr = getChar(e);
+
+		  if (chr == null) return;
+
+		  if (chr < '0' || chr > '9') {
+		    return false;
+		  }
+		}
 	}
 
 	//close
@@ -66,7 +97,7 @@ function calc() {
 	});*/
 	document.body.addEventListener('click', function (event) {
 		let target = event.target;
-			if(target.matches('.popup, .popup_calc, .popup_engineer')) {
+			if(target.classList.contains('popup') || target.classList.contains('popup_calc') || target.classList.contains('popup_engineer')) {
 				popup_calc.style.display = 'none';
 				popup.style.display = 'none';
 				popup_engineer.style.display = 'none';
@@ -131,6 +162,7 @@ function calc() {
 		    if (checkbox[i].checked) {
 		        mainList.profile = checkbox[i].value;    
 		        chooseChecked = true;
+		        break;
 		    } else {
 		    	chooseChecked = false;
 		    }

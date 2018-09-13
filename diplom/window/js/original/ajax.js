@@ -28,12 +28,12 @@ function ajax() {
 	        val = this.value.replace(/\D/g, "");
 	    if (def.length >= val.length) val = def;
 	    this.value = matrix.replace(/./g, function(a) {
-	        return /[_\d]/.test(a) && i < val.length ? val.charAt(i++) : i >= val.length ? "" : a
+	        return /[_\d]/.test(a) && i < val.length ? val.charAt(i++) : i >= val.length ? "" : a;
 	    });
 	    if (event.type == "blur") {
-	        if (this.value.length == 2) this.value = ""
-	    } else setCursorPosition(this.value.length, this)
-	};
+	        if (this.value.length == 2) this.value = "";
+	    } else setCursorPosition(this.value.length, this);
+	}
 	    
 	for (let i = 0; i < form.length; i++) {
 		let input = form[i].getElementsByTagName('input'),

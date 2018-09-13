@@ -17,6 +17,7 @@ function calc() {
       popup_calc_end_close = document.querySelector('.popup_calc_end_close'),
       balcon_icons = document.querySelector('.balcon_icons'),
       big_img = document.querySelector('.big_img'),
+      form_control = document.querySelectorAll('.form-control'),
       mainList = {}; //появляется калькулятор
 
   for (var i = 0; i < popup_calc_btn.length; i++) {
@@ -24,6 +25,33 @@ function calc() {
       popup_calc.style.display = "block";
       document.body.style.overflow = 'hidden';
     });
+  }
+
+  function getChar(event) {
+    if (event.which == null) {
+      if (event.keyCode < 32) return null;
+      return String.fromCharCode(event.keyCode); // IE
+    }
+
+    if (event.which != 0 && event.charCode != 0) {
+      if (event.which < 32) return null;
+      return String.fromCharCode(event.which); // остальные
+    }
+
+    return null; // специальная клавиша
+  }
+
+  for (var _i = 0; _i < form_control.length; _i++) {
+    form_control[_i].onkeypress = function (e) {
+      e = e || event;
+      if (e.ctrlKey || e.altKey || e.metaKey) return;
+      var chr = getChar(e);
+      if (chr == null) return;
+
+      if (chr < '0' || chr > '9') {
+        return false;
+      }
+    };
   } //close
 
 
@@ -59,7 +87,7 @@ function calc() {
   document.body.addEventListener('click', function (event) {
     var target = event.target;
 
-    if (target.matches('.popup, .popup_calc, .popup_engineer')) {
+    if (target.classList.contains('popup') || target.classList.contains('popup_calc') || target.classList.contains('popup_engineer')) {
       popup_calc.style.display = 'none';
       popup.style.display = 'none';
       popup_engineer.style.display = 'none';
@@ -121,10 +149,11 @@ function calc() {
     mainList.view_type = document.getElementById("view_type").options[i].text;
     var checkbox = document.getElementsByName('checkbox-test');
 
-    for (var _i = 0; _i < checkbox.length; _i++) {
-      if (checkbox[_i].checked) {
-        mainList.profile = checkbox[_i].value;
+    for (var _i2 = 0; _i2 < checkbox.length; _i2++) {
+      if (checkbox[_i2].checked) {
+        mainList.profile = checkbox[_i2].value;
         chooseChecked = true;
+        break;
       } else {
         chooseChecked = false;
       }

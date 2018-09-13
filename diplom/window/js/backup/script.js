@@ -67,7 +67,7 @@ window.addEventListener('DOMContentLoaded', function() {
 	        val = this.value.replace(/\D/g, "");
 	    if (def.length >= val.length) val = def;
 	    this.value = matrix.replace(/./g, function(a) {
-	        return /[_\d]/.test(a) && i < val.length ? val.charAt(i++) : i >= val.length ? "" : a
+	        return /[_\d]/.test(a) && i < val.length ? val.charAt(i++) : i >= val.length ? "" : a;
 	    });
 	    if (event.type == "blur") {
 	        if (this.value.length == 2) this.value = ""
@@ -118,7 +118,7 @@ window.addEventListener('DOMContentLoaded', function() {
 			}
 			
 		});
-	};
+	}
 
 	//tab
 	let glazing_block = document.querySelectorAll('.glazing_block'),
@@ -132,9 +132,9 @@ window.addEventListener('DOMContentLoaded', function() {
 				elem[i].style.display = "none";
 			}
 
-		};
+		}
 		
-	};
+	}
 
 
 	function showTabContent(a, i, className, arrayStyle, obj){
@@ -152,7 +152,7 @@ window.addEventListener('DOMContentLoaded', function() {
 			}
 		});
 
-	};
+	}
 
 
 	let decoration_item = document.querySelectorAll('.decoration_item'),
@@ -166,7 +166,7 @@ window.addEventListener('DOMContentLoaded', function() {
 			}
 		});
 
-	};
+	}
 
 	//calc
 
