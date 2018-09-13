@@ -20,8 +20,8 @@ function pict() {
 				event.preventDefault();
 				let target = event.target;
 				if (target != newImage) {
-					newImage.remove();
-					newDiv.remove();
+					newImage.parentNode.removeChild(newImage);
+					newDiv.parentNode.removeChild(newDiv);
 
 				}
 			});

@@ -24,8 +24,8 @@ function pict() {
         var target = event.target;
 
         if (target != newImage) {
-          newImage.remove();
-          newDiv.remove();
+          newImage.parentNode.removeChild(newImage);
+          newDiv.parentNode.removeChild(newDiv);
         }
       });
     });

@@ -115,21 +115,27 @@ function calc() {
     popup_calc.style.display = "none";
     popup_calc_profile.style.display = "block";
   });
-  popup_calc_profile_button.addEventListener('click', function (event) {
+  var chooseChecked = false;
+  popup_calc_profile_content.addEventListener('click', function (event) {
     var i = document.getElementById("view_type").options.selectedIndex;
     mainList.view_type = document.getElementById("view_type").options[i].text;
     var checkbox = document.getElementsByName('checkbox-test');
 
     for (var _i = 0; _i < checkbox.length; _i++) {
-      if (checkbox[_i].type === 'radio' && checkbox[_i].checked) {
+      if (checkbox[_i].checked) {
         mainList.profile = checkbox[_i].value;
+        chooseChecked = true;
+      } else {
+        chooseChecked = false;
       }
     }
-
-    console.log(mainList);
-    popup_calc.style.display = "none";
-    popup_calc_profile.style.display = "none";
-    popup_calc_end.style.display = "block";
+  });
+  popup_calc_profile_button.addEventListener('click', function (event) {
+    if (chooseChecked) {
+      popup_calc.style.display = "none";
+      popup_calc_profile.style.display = "none";
+      popup_calc_end.style.display = "block";
+    }
   });
 }
 
