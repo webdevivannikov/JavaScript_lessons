@@ -16,7 +16,7 @@ function calc() {
 		popup_calc_end_close = document.querySelector('.popup_calc_end_close'),
 		balcon_icons = document.querySelector('.balcon_icons'),
 		big_img = document.querySelector('.big_img'),
-		form_control = document.querySelectorAll('.form-control'),
+		form_attr = document.querySelectorAll('.form_attr'),
 		mainList = {};
 
 	//появляется калькулятор
@@ -44,8 +44,8 @@ function calc() {
 	   return null; // специальная клавиша
 	}
 	
-	for (let i = 0; i < form_control.length; i++){
-		form_control[i].onkeypress = function(e) {
+	for (let i = 0; i < form_attr.length; i++){
+		form_attr[i].onkeypress = function(e) {
 		  e = e || event;
 
 		  if (e.ctrlKey || e.altKey || e.metaKey) return;
